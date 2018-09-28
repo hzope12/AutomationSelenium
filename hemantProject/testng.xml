@@ -3,7 +3,7 @@
 <suite name="Guru99">
   <test thread-count="5" name="TestCase1">
     <classes>
-      <class name="com.seic.qa.testcases.LoginPageTest"/>
+      <class name="com.hemant.qa.testcases.LoginPageTest"/>
     </classes>
   </test> <!-- TestCase1 -->
 </suite> <!-- Guru99 -->

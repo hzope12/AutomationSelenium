@@ -24,7 +24,7 @@ public class LoginPageTest extends BaseClass{
 		
 		lp.navigateToSingIn();
 		lp.signIn();
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		
 	}
 	

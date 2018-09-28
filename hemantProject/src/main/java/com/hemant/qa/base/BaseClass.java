@@ -1,5 +1,6 @@
 package com.hemant.qa.base;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -7,6 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.hemant.slim.SlimClass;
@@ -24,8 +28,10 @@ public class BaseClass {
 		try 
 		{
 			prop = new Properties();
-//			FileInputStream input = new FileInputStream("com/configuration/config.properties");
-			FileInputStream input = new FileInputStream("F://Testing Stuff//Automation//SeicProject//com.configuration//config.properties");
+//			File f1 = new File("config.properties");
+//			String path = f1.getAbsolutePath();
+			FileInputStream input = new FileInputStream(".//com.configuration//config.properties");
+//			FileInputStream input = new FileInputStream("F://Testing Stuff//Automation//SeicProject//com.configuration//config.properties");
 			prop.load(input);			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -39,16 +45,39 @@ public class BaseClass {
 		String browser = prop.getProperty("browser");
 		if(browser.equalsIgnoreCase("chrome")) 
 		{
-			driver = new ChromeDriver();
-			sc = new SlimClass();
-			wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 180);
-			driver.manage().window().maximize();
-//			driver.manage().deleteAllCookies();
-			driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUTS, TimeUnit.SECONDS);
-			driver.get(prop.getProperty("url"));
-			TestUtil.waitForPageLoad();
+			launchChromeBrowser();
+		}else if(browser.equalsIgnoreCase("firefox")) 
+		{
+			launchFirefoxBrowser();
 		}
+		
+		sc = new SlimClass();
+		wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, 180);
+		driver.manage().window().maximize();
+//		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUTS, TimeUnit.SECONDS);
+		driver.get(prop.getProperty("url"));
+		TestUtil.waitForPageLoad();
 	}
 	
+	public void launchChromeBrowser() 
+	{
+		driver = new ChromeDriver();
+	}
+	
+	public void launchFirefoxBrowser() 
+	{
+		System.setProperty("webdriver.gecko.driver", ".//geckodriver.exe");
+//		DesiredCapabilities cap = new DesiredCapabilities().firefox();
+//		cap.setCapability("marionette", true);
+//		driver = new FirefoxDriver(cap);
+//		System.setProperty("webdriver.firefox.marionette", ".//geckodriver.exe");
+		driver = new FirefoxDriver();
+//		FirefoxOptions options = new FirefoxOptions();
+//		options.setLegacy(true);
+//		FirefoxOptions options = new FirefoxOptions();
+//		options.setLogLevel(FirefoxDriverLogLevel.DEBUG);
+//		driver = new FirefoxDriver(options);
+	}
 }
