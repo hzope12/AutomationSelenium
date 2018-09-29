@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.ProfilesIni;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -66,14 +68,23 @@ public class BaseClass {
 		driver = new ChromeDriver();
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void launchFirefoxBrowser() 
 	{
 		System.setProperty("webdriver.gecko.driver", ".//geckodriver.exe");
-//		DesiredCapabilities cap = new DesiredCapabilities().firefox();
-//		cap.setCapability("marionette", true);
-//		driver = new FirefoxDriver(cap);
+//		new DesiredCapabilities();
+		DesiredCapabilities cap = DesiredCapabilities.firefox();
+		ProfilesIni myProfile =  new ProfilesIni();
+		FirefoxProfile profile = myProfile.getProfile("Automation");
+		cap.setCapability("marionette", true);
+		cap.setCapability(FirefoxDriver.PROFILE, profile);
+		driver = new FirefoxDriver(cap);
 //		System.setProperty("webdriver.firefox.marionette", ".//geckodriver.exe");
-		driver = new FirefoxDriver();
+		
+		//Creating new Profile
+		
+		
+//		driver = new FirefoxDriver(profile);
 //		FirefoxOptions options = new FirefoxOptions();
 //		options.setLegacy(true);
 //		FirefoxOptions options = new FirefoxOptions();

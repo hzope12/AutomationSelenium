@@ -32,7 +32,7 @@ public class LoginPageTest extends BaseClass{
 	@AfterSuite
 	public void afterSuite() 
 	{
-		driver.close();
+//		driver.close();
 		driver.quit();
 	}
 	
