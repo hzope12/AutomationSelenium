@@ -76,6 +76,8 @@ public class BaseClass {
 		DesiredCapabilities cap = DesiredCapabilities.firefox();
 		ProfilesIni myProfile =  new ProfilesIni();
 		FirefoxProfile profile = myProfile.getProfile("Automation");
+		profile.setPreference("browser.startup.homepage",
+				"http://www.google.com");
 		cap.setCapability("marionette", true);
 		cap.setCapability(FirefoxDriver.PROFILE, profile);
 		driver = new FirefoxDriver(cap);
