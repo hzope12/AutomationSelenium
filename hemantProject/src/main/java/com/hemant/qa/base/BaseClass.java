@@ -68,29 +68,15 @@ public class BaseClass {
 		driver = new ChromeDriver();
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void launchFirefoxBrowser() 
 	{
 		System.setProperty("webdriver.gecko.driver", ".//geckodriver.exe");
-//		new DesiredCapabilities();
-		DesiredCapabilities cap = DesiredCapabilities.firefox();
-		ProfilesIni myProfile =  new ProfilesIni();
-		FirefoxProfile profile = myProfile.getProfile("Automation");
-		profile.setPreference("browser.startup.homepage",
-				"http://www.google.com");
-		cap.setCapability("marionette", true);
-		cap.setCapability(FirefoxDriver.PROFILE, profile);
-		driver = new FirefoxDriver(cap);
-//		System.setProperty("webdriver.firefox.marionette", ".//geckodriver.exe");
+		ProfilesIni profile = new ProfilesIni();
+		FirefoxProfile myProfile = profile.getProfile("Automation");
+		FirefoxOptions options = new FirefoxOptions();
+		options.setProfile(myProfile);
+		options.addPreference("browser.download.useDownloadDir", false);
+		driver = new FirefoxDriver(options);
 		
-		//Creating new Profile
-		
-		
-//		driver = new FirefoxDriver(profile);
-//		FirefoxOptions options = new FirefoxOptions();
-//		options.setLegacy(true);
-//		FirefoxOptions options = new FirefoxOptions();
-//		options.setLogLevel(FirefoxDriverLogLevel.DEBUG);
-//		driver = new FirefoxDriver(options);
 	}
 }

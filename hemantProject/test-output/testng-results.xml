@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-09-30T18:58:23Z" name="Guru99" finished-at="2018-09-30T18:58:29Z" duration-ms="5532">
+  <suite started-at="2018-10-01T16:05:43Z" name="Guru99" finished-at="2018-10-01T16:05:52Z" duration-ms="9410">
     <groups>
     </groups>
-    <test started-at="2018-09-30T18:58:23Z" name="TestCase1" finished-at="2018-09-30T18:58:29Z" duration-ms="5532">
+    <test started-at="2018-10-01T16:05:43Z" name="TestCase1" finished-at="2018-10-01T16:05:52Z" duration-ms="9410">
       <class name="com.hemant.qa.testcases.LoginPageTest">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.hemant.qa.testcases.LoginPageTest@f5acb9d]" started-at="2018-09-30T18:48:20Z" name="beforeSuite" finished-at="2018-09-30T18:58:23Z" duration-ms="603010" status="PASS">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.hemant.qa.testcases.LoginPageTest@2898ac89]" started-at="2018-10-01T16:04:35Z" name="beforeSuite" finished-at="2018-10-01T16:05:43Z" duration-ms="68182" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method signature="verifySignIn()[pri:0, instance:com.hemant.qa.testcases.LoginPageTest@f5acb9d]" started-at="2018-09-30T18:58:24Z" name="verifySignIn" finished-at="2018-09-30T18:58:29Z" duration-ms="5457" status="PASS">
+        <test-method signature="verifySignIn()[pri:0, instance:com.hemant.qa.testcases.LoginPageTest@2898ac89]" started-at="2018-10-01T16:05:43Z" name="verifySignIn" finished-at="2018-10-01T16:05:52Z" duration-ms="9275" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySignIn -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.hemant.qa.testcases.LoginPageTest@f5acb9d]" started-at="2018-09-30T18:58:29Z" name="afterSuite" finished-at="2018-09-30T18:58:31Z" duration-ms="1704" status="PASS">
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.hemant.qa.testcases.LoginPageTest@2898ac89]" started-at="2018-10-01T16:05:53Z" name="afterSuite" finished-at="2018-10-01T16:05:54Z" duration-ms="1795" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
